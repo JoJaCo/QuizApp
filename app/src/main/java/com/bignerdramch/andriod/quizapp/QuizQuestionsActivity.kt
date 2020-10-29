@@ -35,7 +35,8 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun setQuestion(){
         mCurrentPosition = 1
-        val question = mQuestionsList!!.get(mCurrentPosition -1)
+        val question = mQuestionsList!![mCurrentPosition -1]
+
 
         progressBar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
@@ -51,7 +52,6 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private fun defaultOptionsView(){
         val options = ArrayList<TextView>()
 
-        defaultOptionsView()
 
         options.add(0, tv_option_one)
         options.add(1, tv_option_two)
@@ -81,11 +81,12 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
                 selectedOptionView(tv_option_three, 3)
             }
             R.id.tv_option_four ->{
-                selectedOptionView(tv_option_one, 4)
+                selectedOptionView(tv_option_four, 4)
             }
         }
 
-    }  private fun selectedOptionView(tv: TextView, selectedOptionNum: Int){
+    }
+    private fun selectedOptionView(tv: TextView, selectedOptionNum: Int){
         defaultOptionsView()
         mSelectedOptionPosition = selectedOptionNum
 
