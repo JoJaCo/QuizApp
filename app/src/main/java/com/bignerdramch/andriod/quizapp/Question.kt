@@ -7,7 +7,7 @@ data class Question(
     val image: Int,
     val optionOne: String,
     val optionTwo: String,
-    val optionThre:String,
-    val opttionFour:String,
+    val optionThree:String,
+    val optionFour:String,
     val correctAnswer: Int
 )
