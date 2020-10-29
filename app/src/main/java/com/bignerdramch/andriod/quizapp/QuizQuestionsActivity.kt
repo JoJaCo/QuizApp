@@ -3,6 +3,7 @@ package com.bignerdramch.andriod.quizapp
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity() {
@@ -16,13 +17,19 @@ class QuizQuestionsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_quiz_questions)
 
         mQuestionsList = Constants.getQuestions()
-        
 
-        val currentPosition = 1
-        val question: Question? = questionsList[currentPosition -1]
+        setQuestion()
 
-        progressBar.progress = currentPosition
-        tv_progress.text = "$currentPosition" + "/" + progressBar.max
+
+
+    }
+
+    private fun setQuestion(){
+        mCurrentPosition = 1
+        val question = mQuestionsList!!.get(mCurrentPosition -1)
+
+        progressBar.progress = mCurrentPosition
+        tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
         tv_question.text = question!!.question
         iv_image.setImageResource(question.image)
@@ -30,5 +37,13 @@ class QuizQuestionsActivity : AppCompatActivity() {
         tv_option_two.text = question.optionTwo
         tv_option_three.text = question.optionThree
         tv_option_four.text = question.optionFour
+    }
+
+    private fun defaultOptionsView(){
+        val options = ArrayList<TextView>()
+        options.add(0, tv_option_one)
+        options.add(1, tv_option_two)
+        options.add(2, tv_option_three)
+        options.add(4, tv_option_four)
     }
 }
