@@ -38,10 +38,11 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         val question = mQuestionsList!![mCurrentPosition -1]
 
 
+
         progressBar.progress = mCurrentPosition
         tv_progress.text = "$mCurrentPosition" + "/" + progressBar.max
 
-        tv_question.text = question!!.question
+        tv_question.text = question.question
         iv_image.setImageResource(question.image)
         tv_option_one.text = question.optionOne
         tv_option_two.text = question.optionTwo
@@ -56,7 +57,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         options.add(0, tv_option_one)
         options.add(1, tv_option_two)
         options.add(2, tv_option_three)
-        options.add(4, tv_option_four)
+        options.add(3, tv_option_four)
 
         for (option in options){
             option.setTextColor(Color.parseColor("#7A8089"))
@@ -90,7 +91,9 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
         defaultOptionsView()
         mSelectedOptionPosition = selectedOptionNum
 
-        tv.setTextColor(Color.parseColor("#363A43"))
+        tv.setTextColor(
+            Color.parseColor("#363A43")
+        )
         tv.setTypeface(tv.typeface, Typeface.BOLD)
         tv.background = ContextCompat.getDrawable(
             this,
