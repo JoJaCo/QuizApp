@@ -6,12 +6,17 @@ import android.util.Log
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity() {
+
+    private var mCurrentPosition: Int = 1
+    private var mQuestionsList: ArrayList<Question>? = null
+    private var mSelectedOptionPosition: Int = 0
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
 
-        val questionsList = Constants.getQuestions()
-        Log.i("Questions Size","${questionsList.size}")
+        mQuestionsList = Constants.getQuestions()
+        
 
         val currentPosition = 1
         val question: Question? = questionsList[currentPosition -1]
@@ -22,8 +27,8 @@ class QuizQuestionsActivity : AppCompatActivity() {
         tv_question.text = question!!.question
         iv_image.setImageResource(question.image)
         tv_option_one.text = question.optionOne
-        tv_option_one.text = question.optionTwo
-        tv_option_one.text = question.optionThree
-        tv_option_one.text = question.optionFour
+        tv_option_two.text = question.optionTwo
+        tv_option_three.text = question.optionThree
+        tv_option_four.text = question.optionFour
     }
 }
