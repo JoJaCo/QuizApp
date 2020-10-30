@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">QuizApp</string>
+    <string name="app_name" translatable="false">QuizApp</string>
+    <string name="result" translatable="false">RESULT</string>
+    <string name="imageOfTrophy" translatable="false">image</string>
+    <string name="youWon" translatable="false">Hey,Congratulations! </string>
+
 </resources>
