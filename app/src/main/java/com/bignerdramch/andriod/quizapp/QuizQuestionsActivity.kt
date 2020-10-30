@@ -13,7 +13,7 @@ import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_quiz_questions.*
 
 class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
-
+    //our variables
     private var mCurrentPosition: Int = 1
     private var mQuestionsList: ArrayList<Question>? = null
     private var mSelectedOptionPosition: Int = 0
@@ -21,15 +21,16 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     private var mUserName: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz_questions)
-
+        //stores the user name
         mUserName = intent.getStringExtra(Constants.USER_NAME) //users name
-
+        //gets the questions and stores them
         mQuestionsList = Constants.getQuestions()
-
+        //calls set question
         setQuestion()
-
+        //if the users clicks on a option onClick function will be called
         tv_option_one.setOnClickListener(this)
         tv_option_two.setOnClickListener(this)
         tv_option_three.setOnClickListener(this)
@@ -85,6 +86,7 @@ class QuizQuestionsActivity : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
+        //calls selectedOPtionView depending on the option selected
         when(v?.id){
             R.id.tv_option_one ->{
                 selectedOptionView(tv_option_one, 1)
