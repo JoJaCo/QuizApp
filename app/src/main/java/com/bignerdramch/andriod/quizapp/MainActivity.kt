@@ -12,8 +12,11 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_FULLSCREEN
+        //full screen no decor
 
-        btn_start.setOnClickListener {
+        //this section makes sure the user entered a name
+        // takes the users name and send it to the next activity
+        //closes this activity
             if(et_name.text.toString().isEmpty()){
                 Toast.makeText(this,
                     "Please enter your name",
@@ -28,4 +31,3 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-}
